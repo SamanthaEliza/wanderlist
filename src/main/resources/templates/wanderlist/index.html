@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+    <head th:replace="fragments :: head"></head>
+
+    <body class="container">
+
+        <h1 th:text="${title}">Default Title</h1>
+
+        <nav th:replace="fragments :: navigation"></nav>
+
+        <p th:unless="${wanderlists} and ${wanderlists.size()}">no wanderlists :(</p>
+
+        <ul>
+            <li th:each="wanderlist : ${wanderlists}">
+                <a th:href="'wanderlist/view/' + ${wanderlist.id}" th:text="${wanderlist.name}"></a>
+            </li>
+         </ul>
+
+        <a th:href="@{wanderlist/add}">Add List</a>
+
+    </body>
+</html>
