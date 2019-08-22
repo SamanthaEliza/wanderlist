@@ -15,7 +15,7 @@ public class City {
     private int id;
 
     @NotNull
-    @Size(min=3, max=15)
+    @Size(min=3)
     private String name;
 
     @NotNull
