@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+    <head th:replace="fragments :: head"></head>
+
+    <body class="container">
+
+        <h1 th:text="${title}">Default Title</h1>
+
+        <nav th:replace="fragments :: navigation"></nav>
+        <a href="/activity/add">Add Activity</a>
+
+         <ul>
+
+                <li th:each="activity : ${activity}"
+                    th:text="${activity.getName()}"></li>
+
+            </ul>
+
+<!--        <p th:unless="${activity} and ${activities.size()}">no wanderlists :(</p>-->
+
+        <ul>
+            <li th:each="activity : ${activities}">
+                <a th:href="'activity/view/' + ${activity.id}" th:text="${activity.name}"></a>
+            </li>
+        </ul>
+
+    </body>
+</html>
+
+<!--<nav th:replace="fragments :: navigation"></nav>-->
+<!--<a href="/activity/add">Add Activity</a>-->
+<!--<ul>-->
+
+<!--    <li th:each="activity : ${activity}"-->
+<!--        th:text="${activity.getName()}"></li>-->
+
+<!--</ul>-->
+<!--</body>-->
+<!--</html>-->

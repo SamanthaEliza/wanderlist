@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container body-content">
+<h1 th:text="${title}">My Cities</h1>
 
+<nav th:replace="fragments :: navigation"></nav>
+<form method="post" style="max-width:600px;" th:object="${city}">
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="description">Description</label>
+        <input class="form-control" th:field="*{description}"/>
+        <span th:errors="*{description}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="type">Country</label>
+        <select name="countryId">
+            <option th:each="country : ${country}"
+                    th:text="${country.name}"
+                    th:value="${country.id}"></option>
+        </select>
+    </div>
+<!--    <div class="form-group">-->
+<!--        <label th:for ="type">City</label>-->
+<!--&lt;!&ndash;        <select th:field="*{cityId}">&ndash;&gt;-->
+<!--            <option th:each="city : ${city}"-->
+<!--                    th:text="${city}"-->
+<!--                    th:value="${city}"></option>-->
+<!--        </select>-->
+<!--&lt;!&ndash;        <span th:errors="*{type}" class="error"></span>&ndash;&gt;-->
+<!--    </div>-->
+    <input type="hidden" th:value="${city}" name="cityId" />
+
+
+    <input type="submit" value="Submit" />
+
+</form>
 </body>
 </html>

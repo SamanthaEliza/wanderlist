@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,8 +26,13 @@ public class City {
     @ManyToOne
     private Country country;
 
+    @OneToMany
+    @JoinColumn(name = "activity_id")
+    private List<Activity> activities = new ArrayList<>();
+
     @ManyToMany(mappedBy = "cities")
     private List<WanderList> wanderlist;
+
 
     public City(String name, String description) {
         this.name = name;
