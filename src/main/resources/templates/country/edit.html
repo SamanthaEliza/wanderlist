@@ -2,17 +2,31 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container body-content">
-<h1 th:text="${title}">My Counries</h1>
+<h1 th:text="${title}">My Countries</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 <form method="post" style="max-width:600px;" th:object="${country}">
     <div class="form-group">
         <label th:for="name">Name</label>
-        <input class="form-control" th:field="*{name}" />
+        <input class="form-control" th:field="*{name}"/>
         <span th:errors="*{name}" class="error"></span>
     </div>
+    <div class="form-group">
+        <label th:for="description">Description</label>
+        <input class="form-control" th:field="*{description}"/>
+        <span th:errors="*{description}" class="error"></span>
+    </div>
 
-    <input type="hidden" th:value="${country}" name="countryId" />
+    <div class="form-group">
+        <label th:for="type">Country</label>
+        <select name="countryId">
+            <option th:each="country : ${country}"
+                    th:text="${country.name}"
+                    th:value="${country.id}"></option>
+        </select>
+    </div>
+
+    <input type="hidden" th:value="${city}" name="cityId" />
 
 
     <input type="submit" value="Submit" />

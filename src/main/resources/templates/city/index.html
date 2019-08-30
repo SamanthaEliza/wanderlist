@@ -20,6 +20,10 @@
         <th>Country</th>
         <th>Language</th>
         <th>Currency</th>
+        <th>Airport</th>
+        <th>Climate</th>
+        <th>Population</th>
+        <th>TimeZone</th>
     </tr>
 
     <tr th:each="city : ${cities}">
@@ -29,6 +33,11 @@
         <td th:text="${city.country.name}"></td>
         <td th:text="${city.country.language}"></td>
         <td th:text="${city.country.currency}"></td>
+        <td th:text="${city.airport}"></td>
+        <td th:text="${city.climate}"></td>
+        <td th:text="${city.population}"></td>
+        <td th:text="${city.timezone}"></td>
+
     </tr>
 
 </table>

@@ -23,6 +23,15 @@ public class Country {
 
     private String currency;
 
+    private String capital;
+
+    private String drivingside;
+
+    private String callingcode;
+
+    private String est;
+
+
 //    @OneToMany
 //    @JoinColumn(name = "country_id")
 //    private List<City> cities = new ArrayList<>();
@@ -65,11 +74,23 @@ public class Country {
         this.language = language;
     }
 
-    public String getCurrency() {
-        return currency;
-    }
+    public String getCurrency() {return currency;}
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
+    public void setCurrency(String currency) {this.currency = currency;}
+
+    public String getCapital() {return capital;}
+
+    public void setCapital(String capital) {this.capital = capital;}
+
+    public String getDrivingside() {return drivingside;}
+
+    public void setDrivingside(String drivingside) {this.drivingside = drivingside;}
+
+    public String getCallingcode() {return callingcode;}
+
+    public void setCallingcode(String callingcode) {this.callingcode = callingcode;}
+
+    public String getEst() {return est;}
+
+    public void setEst(String est) {this.est = est;}
 }

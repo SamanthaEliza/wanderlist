@@ -12,10 +12,15 @@
 <table class="table">
 
 <tr>
-
+    <th>Edit</th>
     <th>Name</th>
     <th>Language</th>
     <th>Currency</th>
+    <th>Capital</th>
+    <th>Driving Side</th>
+    <th>Calling Code</th>
+    <th>Established</th>
+
 </tr>
 
 
@@ -23,9 +28,14 @@
 <!--        <td><a th:href="'city/edit/' + ${city.id}" th:text="Edit"></a></td>-->
 <!--        <td th:text="${city.name} + ' (' + ${city.id} + ')'"></td>-->
 <!--        <td th:text="${city.description}"></td>-->
+        <td><a th:href="'country/edit/' + ${country.id}" th:text="Edit"></a></td>
         <td th:text="${country.name}"></td>
         <td th:text="${country.language}"></td>
         <td th:text="${country.currency}"></td>
+        <td th:text="${country.capital}"></td>
+        <td th:text="${country.drivingside}"></td>
+        <td th:text="${country.callingcode}"></td>
+        <td th:text="${country.est}"></td>
     </tr>
 
 
