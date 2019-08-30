@@ -17,7 +17,9 @@
         <th>Edit</th>
         <th>Name</th>
         <th>Description</th>
-        <th>Category</th>
+        <th>Country</th>
+        <th>Language</th>
+        <th>Currency</th>
     </tr>
 
     <tr th:each="city : ${cities}">
@@ -25,6 +27,8 @@
         <td th:text="${city.name} + ' (' + ${city.id} + ')'"></td>
         <td th:text="${city.description}"></td>
         <td th:text="${city.country.name}"></td>
+        <td th:text="${city.country.language}"></td>
+        <td th:text="${city.country.currency}"></td>
     </tr>
 
 </table>

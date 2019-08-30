@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = "wanderlist")
-public class WanderListController {
+public class WanderListController extends AbstractController {
 
 //    @Autowired
 //    private com.bursac.TravelApp.models.data.WanderListDao WanderListDao;

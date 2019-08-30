@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("activity")
-public class ActivityController {
+public class ActivityController extends AbstractController{
 
     @Autowired
     private ActivityDao activityDao;

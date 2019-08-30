@@ -14,6 +14,18 @@
         <input class="form-control" th:field="*{name}" />
         <span th:errors="*{name}" class="error"></span>
     </div>
+    <div class="form-group">
+        <label th:for="language">Language(s)</label>
+        <input class="form-control" th:field="*{language}" />
+        <span th:errors="*{language}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="currency">Currency</label>
+        <input class="form-control" th:field="*{currency}" />
+        <span th:errors="*{currency}" class="error"></span>
+    </div>
+
+
 
     <input type="submit" value="Add" />
 </form>

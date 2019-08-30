@@ -19,6 +19,10 @@ public class Country {
     @Size(min = 3)
     private String name;
 
+    private String language;
+
+    private String currency;
+
 //    @OneToMany
 //    @JoinColumn(name = "country_id")
 //    private List<City> cities = new ArrayList<>();
@@ -55,5 +59,17 @@ public class Country {
         this.name = name;
     }
 
+    public String getLanguage() {return language;}
 
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 }

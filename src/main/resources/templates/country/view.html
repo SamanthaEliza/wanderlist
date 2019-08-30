@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${countries} and ${countries.size()}">no countries :(</p>
+
+<ul>
+    <li th:each="country : ${countries}">
+        <a th:href="'country/view/' + ${country.id}" th:text="${country.name}"></a>
+    </li>
+</ul>
+
+<a th:href="@{country/add}">Add List</a>
+
+</body>
+</html>

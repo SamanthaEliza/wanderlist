@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("country")
-public class CountryControllers {
+public class CountryControllers extends AbstractController {
 
     @Autowired
     private CountryDao countryDao;
@@ -47,5 +47,9 @@ public class CountryControllers {
         }
         countryDao.save(country);
         return "redirect:";
+
     }
+
+//    @RequestMapping(value ="edit/{countryId}", method = RequestMethod.GET)
+//    public String
 }

@@ -3,8 +3,12 @@ package com.bursac.TravelApp.models;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by LaunchCode
@@ -26,6 +30,10 @@ public class User extends AbstractEntity {
         this.username = username;
         this.pwHash = hashPassword(password);
     }
+
+//    @OneToMany
+//    @JoinColumn(name="user_id")
+//    private List<WanderList> myWanderLists = new ArrayList<>();
 
     public String getUsername() {
         return username;

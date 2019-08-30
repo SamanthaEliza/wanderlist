@@ -3,6 +3,7 @@ package com.bursac.TravelApp.controllers;
 
 import com.bursac.TravelApp.models.City;
 import com.bursac.TravelApp.models.Country;
+import com.bursac.TravelApp.models.User;
 import com.bursac.TravelApp.models.data.CityDao;
 import com.bursac.TravelApp.models.data.CountryDao;
 import com.bursac.TravelApp.models.data.WanderListDao;
@@ -12,12 +13,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 
 @Controller
 @RequestMapping("city")
-public class CityController {
+public class CityController extends AbstractController {
 
     @Autowired
     private CityDao cityDao;
@@ -37,7 +39,8 @@ public class CityController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
-    public String displayAddCityForm(Model model) {
+    public String displayAddCityForm(Model model,  HttpServletRequest request) {
+
         model.addAttribute("title", "Add City");
         model.addAttribute(new City());
         model.addAttribute("country", countryDao.findAll());
@@ -60,22 +63,23 @@ public class CityController {
         return "redirect:";
     }
 
-    @RequestMapping(value = "remove", method = RequestMethod.GET)
-    public String displayRemoveCityForm(Model model) {
-        model.addAttribute("cites", cityDao.findAll());
-        model.addAttribute("title", "Remove City");
-        return "city/remove";
-    }
-
-    @RequestMapping(value = "remove", method = RequestMethod.POST)
-    public String processRemoveCityForm(@RequestParam int[] cityIds) {
-
-        for (int cityId : cityIds){
-            cityDao.deleteById(cityId);
-        }
-
-        return "redirect:";
-    }
+    //TODO move this functionality to wanderlists. No reason to remove cities.
+//    @RequestMapping(value = "remove", method = RequestMethod.GET)
+//    public String displayRemoveCityForm(Model model) {
+//        model.addAttribute("cites", cityDao.findAll());
+//        model.addAttribute("title", "Remove City");
+//        return "city/remove";
+//    }
+//
+//    @RequestMapping(value = "remove", method = RequestMethod.POST)
+//    public String processRemoveCityForm(@RequestParam int[] cityIds) {
+//
+//        for (int cityId : cityIds){
+//            cityDao.deleteById(cityId);
+//        }
+//
+//        return "redirect:";
+//    }
 
     @RequestMapping(value = "edit/{cityId}", method = RequestMethod.GET)
     public String displayEditCityForm(Model model, @PathVariable int cityId) {
