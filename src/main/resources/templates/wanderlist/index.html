@@ -8,6 +8,28 @@
 
         <nav th:replace="fragments :: navigation"></nav>
 
+        <a th:href="@{wanderlist/add}">Add List</a>
+
+        <table class="table">
+
+            <tr>
+                <th>Edit</th>
+                <th>Wander List</th>
+                <th>Description</th>
+                <th>Location</th>
+            </tr>
+
+            <tr th:each="wanderlist : ${wanderlist}">
+                <!--        <td><a th:href="'city/edit/' + ${city.id}" th:text="Edit"></a></td>-->
+                <!--        <td th:text="${city.name} + ' (' + ${city.id} + ')'"></td>-->
+                <!--        <td th:text="${city.description}"></td>-->
+                <td><a th:href="'wanderlist/edit/' + ${wanderlist.id}" th:text="Edit"></a></td>
+                <td th:text="${wanderlist.name}"></td>
+                <td th:text="${wanderlist.wanderlist}"></td>
+
+
+        </table>
+
         <p th:unless="${wanderlists} and ${wanderlists.size()}">no wanderlists :(</p>
 
         <ul>
@@ -16,7 +38,7 @@
             </li>
          </ul>
 
-        <a th:href="@{wanderlist/add}">Add List</a>
+
 
     </body>
 </html>

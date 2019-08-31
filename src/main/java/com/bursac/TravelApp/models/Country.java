@@ -49,11 +49,17 @@ public class Country {
     @JoinColumn(name = "country_id")
     private List<City> cities = new ArrayList<>();
 
-    public Country(String name) { this.name = name;
+    public Country(String name, String language, String currency,
+                   String capital, String drivingside, String est)  {
+        this.name = name;
+        this.language = language;
+        this.currency = currency;
+        this.capital = capital;
+        this.drivingside = drivingside;
+        this.est = est;
     }
 
-    public Country() {
-    }
+    public Country() {  }
 
     public int getId() {
         return id;

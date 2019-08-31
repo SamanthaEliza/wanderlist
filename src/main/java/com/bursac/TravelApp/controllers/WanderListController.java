@@ -76,7 +76,7 @@ public class WanderListController extends AbstractController {
 
         AddWanderListForm itemForm = new AddWanderListForm((wanderlist), cityDao.findAll());
 
-        model.addAttribute("title", "Add item to menu: " + wanderlist.getName());
+        model.addAttribute("title", "Wander List " + wanderlist.getName());
         model.addAttribute("form", itemForm);
 
         return "wanderlist/add-item";

@@ -20,6 +20,12 @@ public class WanderList {
     @Size(min=3)
     private String name;
 
+    private String wanderlist;
+
+    private String descripton;
+
+    private String location;
+
     @ManyToMany
     private List<City> cities;
 
@@ -59,4 +65,16 @@ public class WanderList {
 //    public void setUser(User user) {
 //        this.user = user;
 //    }
+
+    public String getWanderlist() {return wanderlist; }
+
+    public void setWanderlist(String wanderlist) {this.wanderlist = wanderlist;}
+
+    public String getDescripton() {return descripton;}
+
+    public void setDescripton(String descripton) {this.descripton = descripton;}
+
+    public String getLocation() {return location;}
+
+    public void setLocation(String location) {this.location = location;}
 }

@@ -3,7 +3,6 @@ package com.bursac.TravelApp.controllers;
 
 import com.bursac.TravelApp.models.City;
 import com.bursac.TravelApp.models.Country;
-import com.bursac.TravelApp.models.User;
 import com.bursac.TravelApp.models.data.CityDao;
 import com.bursac.TravelApp.models.data.CountryDao;
 import com.bursac.TravelApp.models.data.WanderListDao;
@@ -92,9 +91,9 @@ public class CityController extends AbstractController {
 
     @RequestMapping(value = "edit/{cityId}", method = RequestMethod.POST)
     public String processEditForm(Model model, @PathVariable int cityId,
-                                  @ModelAttribute  @Valid City newCity,
+                                  @ModelAttribute @Valid City newCity,
                                   @RequestParam int countryId,
-                                  Errors errors) {
+                                  Errors errors, City newLanguage) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add City");
@@ -104,9 +103,11 @@ public class CityController extends AbstractController {
         City editedCity = cityDao.findById(cityId).orElse(null);
         editedCity.setName(newCity.getName());
         editedCity.setDescription(newCity.getDescription());
+        editedCity.setLanguage(newLanguage.getLanguage());
         editedCity.setCountry(countryDao.findById(countryId).orElse(null));
         cityDao.save(editedCity);
 
         return "redirect:/city";
     }
+
 }

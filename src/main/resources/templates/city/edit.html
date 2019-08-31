@@ -16,6 +16,31 @@
         <input class="form-control" th:field="*{description}"/>
         <span th:errors="*{description}" class="error"></span>
     </div>
+    <div class="form-group">
+        <label th:for="language">Language</label>
+        <input class="form-control" th:field="*{language}"/>
+        <span th:errors="*{language}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="aiport">Airport</label>
+        <input class="form-control" th:field="*{airport}"/>
+        <span th:errors="*{airport}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="climate">Climate</label>
+        <input class="form-control" th:field="*{climate}"/>
+        <span th:errors="*{climate}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="population">Population</label>
+        <input class="form-control" th:field="*{population}"/>
+        <span th:errors="*{population}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="timezone">TimeZone</label>
+        <input class="form-control" th:field="*{timezone}"/>
+        <span th:errors="*{timezone}" class="error"></span>
+    </div>
 
     <div class="form-group">
         <label th:for="type">Country</label>
