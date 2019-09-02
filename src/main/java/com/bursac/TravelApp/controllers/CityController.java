@@ -27,6 +27,7 @@ public class CityController extends AbstractController {
     @Autowired
     private WanderListDao wanderListDao;
 
+
     // Request path: /cites
     @RequestMapping(value = "")
     public String index(Model model) {
@@ -63,22 +64,22 @@ public class CityController extends AbstractController {
     }
 
     //TODO move this functionality to wanderlists. No reason to remove cities.
-//    @RequestMapping(value = "remove", method = RequestMethod.GET)
-//    public String displayRemoveCityForm(Model model) {
-//        model.addAttribute("cites", cityDao.findAll());
-//        model.addAttribute("title", "Remove City");
-//        return "city/remove";
-//    }
-//
-//    @RequestMapping(value = "remove", method = RequestMethod.POST)
-//    public String processRemoveCityForm(@RequestParam int[] cityIds) {
-//
-//        for (int cityId : cityIds){
-//            cityDao.deleteById(cityId);
-//        }
-//
-//        return "redirect:";
-//    }
+    @RequestMapping(value = "remove", method = RequestMethod.GET)
+    public String displayRemoveCityForm(Model model) {
+        model.addAttribute("cities", cityDao.findAll());
+        model.addAttribute("title", "Remove City");
+        return "city/remove";
+    }
+
+    @RequestMapping(value = "remove", method = RequestMethod.POST)
+    public String processRemoveCityForm(@RequestParam int[] cityIds) {
+
+        for (int cityId : cityIds){
+            cityDao.deleteById(cityId);
+        }
+
+        return "redirect:";
+    }
 
     @RequestMapping(value = "edit/{cityId}", method = RequestMethod.GET)
     public String displayEditCityForm(Model model, @PathVariable int cityId) {
@@ -87,6 +88,7 @@ public class CityController extends AbstractController {
         model.addAttribute("city", cityDao.findById(cityId));
         model.addAttribute("country", countryDao.findAll());
         return "city/edit";
+
     }
 
     @RequestMapping(value = "edit/{cityId}", method = RequestMethod.POST)
@@ -103,11 +105,46 @@ public class CityController extends AbstractController {
         City editedCity = cityDao.findById(cityId).orElse(null);
         editedCity.setName(newCity.getName());
         editedCity.setDescription(newCity.getDescription());
-        editedCity.setLanguage(newLanguage.getLanguage());
         editedCity.setCountry(countryDao.findById(countryId).orElse(null));
+        editedCity.setLanguage(newCity.getLanguage());
+        editedCity.setAirport(newCity.getAirport());
+        editedCity.setPopulation(newCity.getPopulation());
+        editedCity.setClimate(newCity.getClimate());
+        editedCity.setTimezone(newCity.getTimezone());
+
         cityDao.save(editedCity);
 
         return "redirect:/city";
     }
+//
+//    @RequestMapping(value = "edit/{cityId}", method = RequestMethod.GET)
+//    public String displayEditCityForm(Model model, @PathVariable int cityId) {
+//
+//        model.addAttribute("title", "Edit City");
+//        model.addAttribute("city", cityDao.findById(cityId));
+//        model.addAttribute("country", countryDao.findAll());
+//        return "city/edit";
+//    }
+//
+//    @RequestMapping(value = "edit/{cityId}", method = RequestMethod.POST)
+//    public String processEditForm(Model model, @PathVariable int cityId,
+//                                  @ModelAttribute @Valid City newCity,
+//                                  @RequestParam int countryId,
+//                                  Errors errors, City newLanguage) {
+//
+//        if (errors.hasErrors()) {
+//            model.addAttribute("title", "Add City");
+//            return "city/edit";
+//        }
+//
+//        City editedCity = cityDao.findById(cityId).orElse(null);
+//        editedCity.setName(newCity.getName());
+//        editedCity.setDescription(newCity.getDescription());
+//        editedCity.setLanguage(newLanguage.getLanguage());
+//        editedCity.setCountry(countryDao.findById(countryId).orElse(null));
+//        cityDao.save(editedCity);
+//
+//        return "redirect:/city";
+//    }
 
 }

@@ -48,20 +48,38 @@ public class CountryControllers extends AbstractController {
         return "redirect:";
 
     }
+    @RequestMapping(value = "remove", method = RequestMethod.GET)
+    public String displayRemoveCountryForm(Model model) {
+        model.addAttribute("cities", countryDao.findAll());
+        model.addAttribute("title", "Remove City");
+        return "city/remove";
+    }
+
+    @RequestMapping(value = "remove", method = RequestMethod.POST)
+    public String processRemoveCountryForm(@RequestParam int[] cityIds) {
+
+        for (int cityId : cityIds){
+            countryDao.deleteById(cityId);
+        }
+
+        return "redirect:";
+    }
+
+
 
     @RequestMapping(value ="edit/{countryId}", method = RequestMethod.GET)
     public String displayEditCountryForm(Model model, @PathVariable int countryId) {
 
         model.addAttribute("title", "Edit Country");
         model.addAttribute("country", countryDao.findById(countryId));
-        model.addAttribute("country",countryDao.findAll());
+        //model.addAttribute("country", countryDao.findAll());
         return "country/edit";
     }
 
     @RequestMapping(value ="edit/{countryId}", method = RequestMethod.POST)
-    public String processEditForm(Model model, @PathVariable int cityId,
+    public String processEditForm(Model model, @PathVariable int countryId,
                                   @ModelAttribute @Valid Country newCountry,
-                                  @RequestParam int countryId,
+                                 // @RequestParam int countryId,
                                   Errors errors) {
 
         if (errors.hasErrors()) {
@@ -71,11 +89,16 @@ public class CountryControllers extends AbstractController {
 
         Country editedCountry = countryDao.findById(countryId).orElse(null);
         editedCountry.setName(newCountry.getName());
-//        editedCountry.setDescription(newCountry.getDescription());
-//        editedCountry.setCountry(countryDao.findById(countryId).orElse(null));
+        editedCountry.setLanguage(newCountry.getLanguage());
+        editedCountry.setCurrency(newCountry.getCurrency());
+        editedCountry.setCapital(newCountry.getCapital());
+        editedCountry.setDrivingside(newCountry.getDrivingside());
+        editedCountry.setCallingcode(newCountry.getCallingcode());
+        editedCountry.setEst(newCountry.getEst());
+
         countryDao.save(editedCountry);
 
-        return "redirect/city";
+        return "redirect:/country";
 
     }
 }

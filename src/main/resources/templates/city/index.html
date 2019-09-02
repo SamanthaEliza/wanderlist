@@ -10,7 +10,8 @@
 
 <p th:unless="${cities} and ${cities.size()}">no city :(</p>
 
-<a href="city/add">Add City</a>
+<a href="city/add">Add City</a> |
+<a href="city/remove">Remove City</a>
 
 <table class="table">
 
@@ -19,7 +20,8 @@
         <th>Name</th>
         <th>Description</th>
         <th>Country</th>
-        <th>Language</th>
+        <th>Local Language</th>
+        <th>National Language</th>
         <th>Currency</th>
         <th>Airport</th>
         <th>Climate</th>
@@ -32,6 +34,7 @@
         <td th:text="${city.name} + ' (' + ${city.id} + ')'"></td>
         <td th:text="${city.description}"></td>
         <td th:text="${city.country.name}"></td>
+        <td th:text="${city.language}"></td>
         <td th:text="${city.country.language}"></td>
         <td th:text="${city.country.currency}"></td>
         <td th:text="${city.airport}"></td>
