@@ -20,9 +20,9 @@ public class WanderList {
     @Size(min=3)
     private String name;
 
-    private String wanderlist;
+//    private String wanderlist;
 
-    private String descripton;
+    private String description;
 
     private String location;
 
@@ -54,9 +54,9 @@ public class WanderList {
     public List<City> getCities() { return cities;
     }
 
-    public void addItem(City item) {
-        cities.add(item);
-    }
+//    public void addItem(City item) {
+//        cities.add(item);
+//    }
 
 //    public User getUser() {
 //        return user;
@@ -66,15 +66,18 @@ public class WanderList {
 //        this.user = user;
 //    }
 
-    public String getWanderlist() {return wanderlist; }
+//    public String getWanderlist() {return wanderlist; }
+//
+//    public void setWanderlist(String wanderlist) {this.wanderlist = wanderlist;}
 
-    public void setWanderlist(String wanderlist) {this.wanderlist = wanderlist;}
+    public String getDescription() {return description;}
 
-    public String getDescripton() {return descripton;}
-
-    public void setDescripton(String descripton) {this.descripton = descripton;}
+    public void setDescription(String descripton) {this.description = descripton;}
 
     public String getLocation() {return location;}
 
     public void setLocation(String location) {this.location = location;}
+
+    public void add(City city) {
+    }
 }

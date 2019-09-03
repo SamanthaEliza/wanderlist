@@ -9,11 +9,30 @@
         <nav th:replace="fragments :: navigation"></nav>
 
         <form method="post" style="max-width:600px;" th:object="${wanderlist}">
+
             <div>
                 <label th:for="name">Name</label>
                 <input class="form-control" th:field="*{name}"/>
                 <span class="error" th:errors="*{name}"></span>
             </div>
+<!--            <div>-->
+<!--                <label th:for="wamderlist">Wanderlist</label>-->
+<!--                <input class="form-control" th:field="*{wanderlist}"/>-->
+<!--                <span class="error" th:errors="*{wanderlist}"></span>-->
+<!--            </div>-->
+
+            <div>
+                <label th:for="description">Description</label>
+                <input class="form-control" th:field="*{description}"/>
+                <span class="error" th:errors="*{description}"></span>
+            </div>
+            <div>
+                <label th:for="location">Location</label>
+                <input class="form-control" th:field="*{location}"/>
+                <span class="error" th:errors="*{location}"></span>
+            </div>
+
+
 
             <input type="submit" value="Add Wanderlist" />
         </form>

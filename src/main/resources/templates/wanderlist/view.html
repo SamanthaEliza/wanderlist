@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-    <head th:replace="fragments :: head"></head>
+<head th:replace="fragments :: head"></head>
 
-    <body class="container">
+<body class="container">
 
-        <h1 th:text="${title}">Default Title</h1>
+<h1 th:text="${title}">Default Title</h1>
 
-        <nav th:replace="fragments :: navigation"></nav>
+<nav th:replace="fragments :: navigation"></nav>
 
-        <ul>
-            <li th:each="city : ${wanderlist.cities}" th:text="${city.name}"></li>
-        </ul>
+<p th:unless="${wanderlists} and ${wanderlists.size()}">no lists :(</p>
 
-<!--        <div class="form-group">-->
-<!--            <label th:for="type">Country</label>-->
-<!--            <select name="countryId">-->
-<!--                <option th:each="country : ${country}"-->
-<!--                        th:text="${country.name}"-->
-<!--                        th:value="${country.id}"></option>-->
-<!--            </select>-->
-<!--        </div>-->
+<ul>
+    <li th:each="wanderlist : ${wanderlists}">
+        <a th:href="'wanderlist/view/' + ${wanderlist.id}" th:text="${wanderlist.name}"></a>
+    </li>
+</ul>
 
-<!--        <input type="submit" value="Add" />-->
+<a th:href="@{wanderlist/add}">Add List</a>
+
+</body>
+</html><!--<html lang="en" xmlns:th="http://www.thymeleaf.org/">-->
+<!--    <head th:replace="fragments :: head"></head>-->
+
+<!--    <body class="container">-->
+
+<!--        <h1 th:text="${title}">Default Title</h1>-->
+
+<!--        <nav th:replace="fragments :: navigation"></nav>-->
+
+<!--        <ul>-->
+<!--            <li th:each="city : ${wanderlist.cities}" th:text="${city.name}"></li>-->
+<!--        </ul>-->
+
+<!--&lt;!&ndash;        <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;            <label th:for="type">Country</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <select name="countryId">&ndash;&gt;-->
+<!--&lt;!&ndash;                <option th:each="country : ${country}"&ndash;&gt;-->
+<!--&lt;!&ndash;                        th:text="${country.name}"&ndash;&gt;-->
+<!--&lt;!&ndash;                        th:value="${country.id}"></option>&ndash;&gt;-->
+<!--&lt;!&ndash;            </select>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <input type="submit" value="Add" />&ndash;&gt;-->
 
 
 
-        <p><a th:href="'/wanderlist/add-item/' + ${wanderlist.id}">Add City</a></p>
+<!--        <p><a th:href="'/wanderlist/add/' + ${wanderlist.id}">Add City</a></p>-->
 
-    </body>
-</html>
+<!--    </body>-->
+<!--</html>-->

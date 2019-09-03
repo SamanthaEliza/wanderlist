@@ -8,7 +8,8 @@
 
         <nav th:replace="fragments :: navigation"></nav>
 
-        <a th:href="@{wanderlist/add}">Add List</a>
+        <a th:href="@{wanderlist/add}">Add List</a> |
+        <a th:href="@{wanderlist/remove}">Remove List</a>
 
         <table class="table">
 
@@ -19,24 +20,31 @@
                 <th>Location</th>
             </tr>
 
+<!--            <tr th:each="wanderlist : ${wanderlist}">-->
+<!--                &lt;!&ndash;        <td><a th:href="'city/edit/' + ${city.id}" th:text="Edit"></a></td>&ndash;&gt;-->
+<!--                &lt;!&ndash;        <td th:text="${city.name} + ' (' + ${city.id} + ')'"></td>&ndash;&gt;-->
+<!--                &lt;!&ndash;        <td th:text="${city.description}"></td>&ndash;&gt;-->
+<!--                <td><a th:href="'wanderlist/edit/' + ${wanderlist.id}" th:text="Edit"></a></td>-->
+<!--                <td th:text="${wanderlist.name}"></td>-->
+<!--                <td th:text="${wanderlist.wanderlist}"></td>-->
+
             <tr th:each="wanderlist : ${wanderlist}">
-                <!--        <td><a th:href="'city/edit/' + ${city.id}" th:text="Edit"></a></td>-->
-                <!--        <td th:text="${city.name} + ' (' + ${city.id} + ')'"></td>-->
-                <!--        <td th:text="${city.description}"></td>-->
                 <td><a th:href="'wanderlist/edit/' + ${wanderlist.id}" th:text="Edit"></a></td>
                 <td th:text="${wanderlist.name}"></td>
-                <td th:text="${wanderlist.wanderlist}"></td>
+                <td th:text="${wanderlist.description}"></td>
+                <td th:text="${wanderlist.location}"></td>
+        </tr>
 
 
         </table>
 
-        <p th:unless="${wanderlists} and ${wanderlists.size()}">no wanderlists :(</p>
+<!--        <p th:unless="${wanderlists} and ${wanderlists.size()}">no wanderlists :(</p>-->
 
-        <ul>
-            <li th:each="wanderlist : ${wanderlists}">
-                <a th:href="'wanderlist/view/' + ${wanderlist.id}" th:text="${wanderlist.name}"></a>
-            </li>
-         </ul>
+<!--        <ul>-->
+<!--            <li th:each="wanderlist : ${wanderlists}">-->
+<!--                <a th:href="'wanderlist/view/' + ${wanderlist.id}" th:text="${wanderlist.name}"></a>-->
+<!--            </li>-->
+<!--         </ul>-->
 
 
 
