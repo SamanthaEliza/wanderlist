@@ -17,7 +17,11 @@ public class Activity {
     @NotNull
     @Size(min=3)
     private String name;
-    
+
+    private String items;
+
+    private String location;
+
 
 
     @NotNull
@@ -61,6 +65,14 @@ public class Activity {
     public void setCity(City city) {
         this.city = city;
     }
+
+    public String getItems() {return items;}
+
+    public void setItems(String items) {this.items = items;}
+
+    public String getLocation() {return location;}
+
+    public void setLocation(String location) {this.location = location;}
 }
 
 

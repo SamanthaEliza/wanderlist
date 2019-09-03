@@ -10,20 +10,41 @@
         <a href="/activity/add">Add Activity</a> |
         <a href="activity/remove">Remove Activity</a>
 
-         <ul>
 
-                <li th:each="activity : ${activity}"
-                    th:text="${activity.getName()}"></li>
+        <table class="table">
 
-            </ul>
+            <tr>
+                <th>Edit</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Items </th>
+                <th>Location</th>
+            </tr>
 
-<!--        <p th:unless="${activity} and ${activities.size()}">no wanderlists :(</p>-->
+            <tr th:each="activity :${activities}">
+                <td><a th:href="'activity/edit/' + ${activity.id}" th:text="Edit"></a></td>
+                <td th:text="${activity.name} + ' (' + ${activity.id} + ')'"></td>
+                <td th:text="${activity.description}"></td>
+                <td th:text="${activity.items}"></td>
+                <td th:text="${activity.location}"></td>
+            </tr>
 
-        <ul>
-            <li th:each="activity : ${activities}">
-                <a th:href="'activity/view/' + ${activity.id}" th:text="${activity.name}"></a>
-            </li>
-        </ul>
+        </table>
+
+<!--         <ul>-->
+
+<!--                <li th:each="activity : ${activity}"-->
+<!--                    th:text="${activity.getName()}"></li>-->
+
+<!--            </ul>-->
+
+<!--&lt;!&ndash;        <p th:unless="${activity} and ${activities.size()}">no wanderlists :(</p>&ndash;&gt;-->
+
+<!--        <ul>-->
+<!--            <li th:each="activity : ${activities}">-->
+<!--                <a th:href="'activity/view/' + ${activity.id}" th:text="${activity.name}"></a>-->
+<!--            </li>-->
+<!--        </ul>-->
 
     </body>
 </html>

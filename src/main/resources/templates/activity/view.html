@@ -9,10 +9,10 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 <ul>
-    <li th:each="city : ${activity.cities}" th:text="${city.name}"></li>
+    <li th:each="activity : ${activity.cities}" th:text="${activity.name}"></li>
 </ul>
 
-<p><a th:href="'/activity/add/' + ${activity.id}">Add City</a></p>
+<p><a th:href="'/activity/add/' + ${activity.id}">Add Activity</a></p>
 
 </body>
 </html>
