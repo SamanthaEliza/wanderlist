@@ -17,6 +17,8 @@ public class Activity {
     @NotNull
     @Size(min=3)
     private String name;
+    
+
 
     @NotNull
     @Size(min=1, message = "Description must not be empty")

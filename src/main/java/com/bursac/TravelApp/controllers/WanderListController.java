@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -98,6 +95,23 @@ public String edit(Model model, @PathVariable int wanderlistId,
 
         return "redirect:/wanderlist";
 
+    }
+
+    @RequestMapping(value = "remove", method = RequestMethod.GET)
+    public String displayRemoveCityForm(Model model) {
+        model.addAttribute("wanderlist", wanderListDao.findAll());
+        model.addAttribute("title", "Remove Wanderlist");
+        return "wanderlist/remove";
+    }
+
+    @RequestMapping(value = "remove", method = RequestMethod.POST)
+    public String processRemoveCityForm(@RequestParam int[] wanderlistIds) {
+
+        for (int wanderlistId : wanderlistIds){
+            wanderListDao.deleteById(wanderlistId);
+        }
+
+        return "redirect:";
     }
 
 
