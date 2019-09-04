@@ -11,12 +11,31 @@
 <body>
 
 <nav th:fragment="navigation">
+    <div th:if="${user}">
+        <!-- Nav section for logged-in users -->
     <a href="/city">List City</a> |
-    <a href="/city/add">Add City</a> |
-    <a href="/city/remove">Remove City</a> |
-    <a href="/country">Country</a> |
-    <a href="/wanderlist">Wander List</a> |
-    <a href="/wanderlist/add">Add List</a>
+<!--    <a href="/city/add">Add City</a> |-->
+    <a href="/country">Countries</a> |
+    <a href="/wanderlist">WanderLists</a> |
+<!--    <a href="/wanderlist/add">Add WanderList</a> |-->
+    <a href="/activity">Activities</a> |
+    <a href="/search"> Search </a> |
+    <a href="/logout">Log Out</a>
+
+
+
+<!--        <nav class="user-nav">-->
+<!--            <a href="/logout">Log Out</a>-->
+<!--        </nav>-->
+    </div>
+    <div th:unless="${user}">
+        <!-- Nav section for users that aren't logged in -->
+        <nav>
+            <a href="/login">Log In</a> |
+            <a href="/register">Register</a>
+        </nav>
+    </div>
+
 </nav>
 
 </body>

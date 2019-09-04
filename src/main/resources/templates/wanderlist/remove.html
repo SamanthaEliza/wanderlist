@@ -8,13 +8,13 @@
 <nav th:replace="fragments :: navigation"></nav>
 <form method="post">
 
-    <div th:each="city : ${cities}" class="checkbox">
-        <input type="checkbox" name="cityIds" th:value="${city.id}" th:id="${city.id}"/>
-        <label th:for="${city.id}" th:text="${city.name}"></label>
+    <div th:each="wanderlist : ${wanderlist}" class="checkbox">
+        <input type="checkbox" name="wanderlistIds" th:value="${wanderlist.id}" th:id="${wanderlist.id}"/>
+        <label th:for="${wanderlist.id}" th:text="${wanderlist.name}"></label>
         <br />
     </div>
 
-    <input type="submit" value="Remove City" />
+    <input type="submit" value="Remove Wanderlist" />
 </form>
 
 </body>

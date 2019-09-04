@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
-    <head th:replace="fragments :: head"></head>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org/">-->
+<!--    <head th:replace="fragments :: head"></head>-->
 
-    <body class="container">
+<!--    <body class="container">-->
 
-        <h1 th:text="${title}">Default Title</h1>
+<!--        <h1 th:text="${title}">Default Title</h1>-->
 
-        <nav th:replace="fragments :: navigation"></nav>
+<!--        <nav th:replace="fragments :: navigation"></nav>-->
 
-        <form method="post" th:object="${form}">
-            <div class="form-group">
-                <label th:for="type">City</label>
-                <select th:field="*{cityId}">
-                    <option th:each="city : ${form.cities}"
-                            th:text="${city.name}"
-                             th:value="${city.id}"></option>
-                </select>
-            </div>
+<!--        <form method="post" th:object="${form}">-->
+<!--            <div class="form-group">-->
+<!--                <label th:for="type">City</label>-->
+<!--                <select th:field="*{cityId}">-->
+<!--                    <option th:each="city : ${form.cities}"-->
+<!--                            th:text="${city.name}"-->
+<!--                             th:value="${city.id}"></option>-->
+<!--                </select>-->
+<!--            </div>-->
 
-<!--            <input type="hidden" name="wanderlistId" th:value="*{wanderlist.id}" />-->
+<!--&lt;!&ndash;            <input type="hidden" name="wanderlistId" th:value="*{wanderlist.id}" />&ndash;&gt;-->
 
-            <input type="submit" value="Add Place" />
-        </form>
+<!--            <input type="submit" value="Add Place" />-->
+<!--        </form>-->
 
-    </body>
-</html>
+<!--    </body>-->
+<!--</html>-->
