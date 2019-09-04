@@ -1,7 +1,5 @@
 package com.bursac.TravelApp.models;
 
-import org.hibernate.annotations.Generated;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -10,6 +8,8 @@ import java.util.List;
 
 @Entity
 public class Country {
+
+    public static Country ALL;
 
     @Id
     @GeneratedValue
@@ -61,6 +61,14 @@ public class Country {
 
     public Country() {  }
 
+    public static Country[] values() {
+        return new Country[0];
+    }
+
+    public static Country getValue() {
+        return null;
+    }
+
     public int getId() {
         return id;
     }
@@ -99,4 +107,9 @@ public class Country {
     public String getEst() {return est;}
 
     public void setEst(String est) {this.est = est;}
+
+
+    public ArrayList<Country> findById(Country searchField, String keyword) {
+        return null;
+    }
 }
